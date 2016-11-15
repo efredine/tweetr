@@ -52,14 +52,10 @@
   background-image: url("https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png");
   border-radius: 5px;
   display: inline-block;
+  float: left;
   height: 50px;
   overflow: hidden;
   width: 50px;
-}
-
-.tweet-list .tweet header .avatar-container {
-  display: inline-block;
-  float: left;
 }
 
 .tweet-list .tweet header .twitter-handle {
