@@ -1,0 +1,63 @@
+.tweet-list {
+  padding-bottom: 80px;
+}
+
+.tweet-list .tweet {
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 2em 2em;
+  position: relative;
+}
+
+.tweet-list .tweet header {
+  background-color: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+}
+
+.tweet-list .tweet .avatar {
+  background-image: url("https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png");
+  border-radius: 5px;
+  height: 50px;
+  overflow: hidden;
+  width: 50px;
+}
+
+.tweet-list .tweet .avatar-container {
+  padding: 10px;
+  float: left;
+}
+
+.tweet-list .tweet .user-name {
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 0.5em 10px 30px 10px;
+}
+
+.tweet-list .tweet .twitter-handle {
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 10px 30px 10px;
+  position: absolute;
+  right: 10px;
+}
+
+.tweet-list .tweet .tweet-text {
+  font-size: 1.25em;
+  padding: 0 10px;
+}
+
+.tweet-list .tweet footer {
+  border-top: 1px solid #bbb;
+  font-size: 0.75em;
+  padding: 10px;
+  position: relative;
+}
+
+.tweet-list .tweet .actions {
+  position: absolute;
+  right: 10px;
+}
