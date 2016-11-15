@@ -13,7 +13,7 @@
 .tweet-list .tweet footer {
   border-top: 1px solid #bbb;
   font-size: 0.75em;
-  padding: 1em 1.33em;
+  padding: 10px 16px;
   position: relative;
 }
 
@@ -29,15 +29,15 @@
 
 .tweet-list .tweet .tweet-text {
   font-size: 1.25em;
-  padding: 0.8em 0.8em;
+  padding: 16px;
 }
 
 .tweet-list .tweet footer .actions {
   color: #66C6B7;
   display: none;
   position: absolute;
-  right: 1.33em;
-  bottom: 1em;
+  right: 16px;
+  bottom: 10px;
 }
 
 .tweet-list .tweet:hover footer .actions {
@@ -66,7 +66,7 @@
   bottom: 20px;
   font-size: 1em;
   position: absolute;
-  right: 1em;
+  right: 16px;
 }
 
 .tweet-list .tweet header .user-name {
