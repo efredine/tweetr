@@ -45,7 +45,7 @@ var data = [
       "handle": "@johann49"
     },
     "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+      "text": "<script>alert('uh oh!');</script>"
     },
     "created_at": 1461113796368
   }
@@ -126,6 +126,19 @@ function renderTweets(data) {
   }
 }
 
+function processForm(event) {
+  event.preventDefault();
+  $.ajax({
+    method: "POST",
+    url: "/tweets",
+    data: $( this ).serialize()
+  })
+  .done(function() {
+    $(".new-tweet").find("textArea").val("");
+  });
+}
+
 $(document).ready(function(){
   renderTweets(data);
+  $( "form" ).on( "submit", processForm);
 });
