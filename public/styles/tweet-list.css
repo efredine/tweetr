@@ -10,59 +10,69 @@
   position: relative;
 }
 
+.tweet-list .tweet .tweet-text {
+  font-size: 1.25em;
+  padding: 0 0.8em;
+}
+
+.tweet-list .tweet footer {
+  border-top: 1px solid #bbb;
+  padding: 1em;
+  position: relative;
+}
+
+.tweet-list .tweet footer .actions {
+  display: none;
+  font-size: 0.75em;
+  position: absolute;
+  right: 1.33em;
+  bottom: 1.33em;
+}
+
+.tweet-list .tweet:hover footer .actions {
+  display: inline-block;
+}
+
+.tweet-list .tweet footer .tweet-time {
+  display: inline-block;
+  font-size: 0.75em;
+}
+
 .tweet-list .tweet header {
   background-color: #eee;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  height: 70px;
+  padding: 10px;
   position: relative;
 }
 
-.tweet-list .tweet .avatar {
+.tweet-list .tweet header .avatar {
   background-image: url("https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png");
   border-radius: 5px;
+  display: inline-block;
   height: 50px;
   overflow: hidden;
   width: 50px;
 }
 
-.tweet-list .tweet .avatar-container {
-  padding: 10px;
+.tweet-list .tweet header .avatar-container {
+  display: inline-block;
   float: left;
 }
 
-.tweet-list .tweet .user-name {
-  display: inline-block;
-  font-size: 1.5em;
-  margin: 0;
-  padding: 0.5em 10px 30px 10px;
-}
-
-.tweet-list .tweet .twitter-handle {
+.tweet-list .tweet header .twitter-handle {
   display: inline-block;
   font-size: 1em;
-  padding: 1em 10px 30px 10px;
+  padding: 0.625em 1em 0 1em;
   position: absolute;
-  right: 10px;
+  right: 0;
 }
 
-.tweet-list .tweet .tweet-text {
-  font-size: 1.25em;
-  padding: 0 10px;
-}
-
-.tweet-list .tweet footer {
-  border-top: 1px solid #bbb;
-  font-size: 0.75em;
-  padding: 10px;
-  position: relative;
-}
-
-.tweet-list .tweet .actions {
-  position: absolute;
-  right: 10px;
-  display: none;
-}
-
-.tweet-list .tweet:hover .actions {
+.tweet-list .tweet header .user-name {
   display: inline-block;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0.25em 1em 0 1em;
 }
