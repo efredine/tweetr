@@ -12,12 +12,12 @@
 
 .tweet-list .tweet .tweet-text {
   font-size: 1.25em;
-  padding: 0 0.8em;
+  padding: 0.8em 0.8em;
 }
 
 .tweet-list .tweet footer {
   border-top: 1px solid #bbb;
-  padding: 1em;
+  padding: 0.5em 1em;
   position: relative;
 }
 
