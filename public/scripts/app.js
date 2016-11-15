@@ -24,6 +24,29 @@ function iconSpan(iconClass) {
   return $("<span>").addClass("fa " + iconClass).attr("aria-hidden", "true");
 }
 
+function plural(n, s) {
+  return n.toString() + " " + s + (n > 1 ? "s" : "");
+}
+
+function timeSince(timeInMilliSeconds) {
+  var msMinute = 60 * 1000;
+  var msHours = 60 * 60 * 1000;
+  var msDay = 60 * 60 * 24 * 1000;
+  var now = new Date();
+  var then = new Date(timeInMilliSeconds);
+  var differenceInMilliSeconds = now - then;
+  var days = Math.floor(differenceInMilliSeconds / msDay);
+  if(days) {
+    return plural(days, "day");
+  }
+  var hours = Math.floor( (differenceInMilliSeconds % msDay) / msHours );
+  if(hours) {
+    return plural(hours, "hour");
+  }
+  var minutes = Math.floor( (differenceInMilliSeconds % msHours) / msMinutes);
+  return plural(minutes, "minute");
+}
+
 function createTweetElement(tweetData) {
   var $tweet = $("<article>").addClass("tweet");
   var header = $("<header>")
@@ -37,7 +60,7 @@ function createTweetElement(tweetData) {
     .append(iconSpan("fa-retweet"))
     .append(iconSpan("fa-heart"));
   var footer = $("<footer>")
-    .append($("<span>").addClass("tweet-time").text("10 days agao"))
+    .append($("<span>").addClass("tweet-time").text(timeSince(tweetData.created_at) + " ago"))
     .append(actions);
   $tweet.append(footer);
   return $tweet;
