@@ -60,4 +60,9 @@
 .tweet-list .tweet .actions {
   position: absolute;
   right: 10px;
+  display: none;
+}
+
+.tweet-list .tweet:hover .actions {
+  display: inline-block;
 }
