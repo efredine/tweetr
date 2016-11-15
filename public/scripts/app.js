@@ -59,10 +59,11 @@ function plural(n, s) {
   return n.toString() + " " + s + (n > 1 ? "s" : "");
 }
 
+var msMinute = 60 * 1000;
+var msHours = 60 * 60 * 1000;
+var msDay = 60 * 60 * 24 * 1000;
+
 function timeSince(timeInMilliSeconds) {
-  var msMinute = 60 * 1000;
-  var msHours = 60 * 60 * 1000;
-  var msDay = 60 * 60 * 24 * 1000;
   var now = new Date();
   var then = new Date(timeInMilliSeconds);
   var differenceInMilliSeconds = now - then;
@@ -74,7 +75,7 @@ function timeSince(timeInMilliSeconds) {
   if(hours) {
     return plural(hours, "hour");
   }
-  var minutes = Math.floor( (differenceInMilliSeconds % msHours) / msMinutes);
+  var minutes = Math.floor( (differenceInMilliSeconds % msHours) / msMinute);
   return plural(minutes, "minute");
 }
 
@@ -126,6 +127,16 @@ function renderTweets(data) {
   }
 }
 
+function loadData() {
+  $.ajax({
+    method: "GET",
+    url: "/tweets"
+  })
+  .done(function(tweetData) {
+    renderTweets(tweetData);
+  });
+}
+
 function processForm(event) {
   event.preventDefault();
   $.ajax({
@@ -139,6 +150,6 @@ function processForm(event) {
 }
 
 $(document).ready(function(){
-  renderTweets(data);
+  loadData();
   $( "form" ).on( "submit", processForm);
 });
