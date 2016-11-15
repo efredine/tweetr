@@ -1,8 +1,8 @@
-.tweet-list {
+#tweets-container {
   padding-bottom: 80px;
 }
 
-.tweet-list .tweet {
+#tweets-container .tweet {
   background-color: white;
   border: 1px solid grey;
   border-radius: 5px;
@@ -10,14 +10,14 @@
   position: relative;
 }
 
-.tweet-list .tweet footer {
+#tweets-container .tweet footer {
   border-top: 1px solid #bbb;
   font-size: 0.75em;
   padding: 10px 16px;
   position: relative;
 }
 
-.tweet-list .tweet header {
+#tweets-container .tweet header {
   background-color: #eee;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -27,12 +27,12 @@
   position: relative;
 }
 
-.tweet-list .tweet .tweet-text {
+#tweets-container .tweet .tweet-text {
   font-size: 1.25em;
   padding: 16px;
 }
 
-.tweet-list .tweet footer .actions {
+#tweets-container .tweet footer .actions {
   color: #66C6B7;
   display: none;
   position: absolute;
@@ -40,16 +40,20 @@
   bottom: 10px;
 }
 
-.tweet-list .tweet:hover footer .actions {
+#tweets-container .tweet:hover footer .actions {
   display: inline-block;
 }
 
-.tweet-list .tweet footer .tweet-time {
+#tweets-container .tweet:hover footer .actions .fa {
+  padding-left: 5px;
+}
+
+#tweets-container .tweet footer .tweet-time {
   display: inline-block;
 }
 
-.tweet-list .tweet header .avatar {
-  background-image: url("https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png");
+#tweets-container .tweet header .avatar {
+  /*background-image: url("https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png");*/
   border-radius: 5px;
   display: inline-block;
   float: left;
@@ -58,14 +62,14 @@
   width: 50px;
 }
 
-.tweet-list .tweet header .twitter-handle {
+#tweets-container .tweet header .twitter-handle {
   bottom: 20px;
   font-size: 1em;
   position: absolute;
   right: 16px;
 }
 
-.tweet-list .tweet header .user-name {
+#tweets-container .tweet header .user-name {
   bottom: 20px;
   font-size: 1.5em;
   font-weight: bold;
