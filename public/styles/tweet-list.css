@@ -10,15 +10,24 @@
   position: relative;
 }
 
-.tweet-list .tweet .tweet-text {
-  font-size: 1.25em;
-  padding: 0.8em 0.8em;
-}
-
 .tweet-list .tweet footer {
   border-top: 1px solid #bbb;
   padding: 0.5em 1em;
   position: relative;
+}
+
+.tweet-list .tweet header {
+  background-color: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  height: 70px;
+  padding: 10px;
+  position: relative;
+}
+
+.tweet-list .tweet .tweet-text {
+  font-size: 1.25em;
+  padding: 0.8em 0.8em;
 }
 
 .tweet-list .tweet footer .actions {
@@ -36,15 +45,6 @@
 .tweet-list .tweet footer .tweet-time {
   display: inline-block;
   font-size: 0.75em;
-}
-
-.tweet-list .tweet header {
-  background-color: #eee;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  height: 70px;
-  padding: 10px;
-  position: relative;
 }
 
 .tweet-list .tweet header .avatar {
