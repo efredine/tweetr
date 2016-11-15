@@ -21,6 +21,7 @@
   background-color: #eee;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  line-height: 40px;
   height: 70px;
   padding: 10px;
   position: relative;
@@ -62,17 +63,17 @@
 }
 
 .tweet-list .tweet header .twitter-handle {
-  display: inline-block;
+  bottom: 20px;
   font-size: 1em;
-  padding: 0.625em 1em 0 1em;
   position: absolute;
-  right: 0;
+  right: 1em;
 }
 
 .tweet-list .tweet header .user-name {
-  display: inline-block;
+  bottom: 20px;
   font-size: 1.5em;
   font-weight: bold;
+  left: 100px;
   margin: 0;
-  padding: 0.25em 1em 0 1em;
+  position: absolute;
 }
