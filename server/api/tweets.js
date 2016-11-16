@@ -29,7 +29,7 @@ module.exports = function(db) {
       created_at: Date.now()
     };
     db.saveTweet(tweet);
-    return res.send();
+    return res.json(tweet);
   });
 
   return tweets;

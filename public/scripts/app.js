@@ -5,6 +5,7 @@
  */
 $(function() {
 
+  var tweetsContainer = $('#tweets-container');
   var composeDisplayed = false;
 
   function iconSpan(iconClass) {
@@ -83,12 +84,15 @@ $(function() {
     return $tweet;
   }
 
+  function renderTweet(tweetData) {
+    tweetsContainer.prepend(createTweetElement(tweetData));
+  }
+
   function renderTweets(data) {
-    var tweetsContainer = $('#tweets-container');
     tweetsContainer.empty();
-    for(var i = 0; i < data.length; i++) {
-      tweetsContainer.append(createTweetElement(data[i]));
-    }
+    data.forEach(function(tweet) {
+      renderTweet(tweet);
+    });
   }
 
   function loadData() {
@@ -134,9 +138,10 @@ $(function() {
       url: form.attr("action"),
       data: form.serialize()
     })
-    .done(function() {
+    .done(function(tweetData) {
+      // update display pessimistically
       $(".new-tweet").find("textArea").val("");
-      loadData();
+      renderTweet(tweetData);
     });
   });
 
