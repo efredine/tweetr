@@ -1,11 +1,10 @@
 $(document).ready(function(){
+  var counter = $(".new-tweet").find(".counter");
 
   // set handler on the text area within that section
   $(".new-tweet").find("textArea").on("input", function(){
-    var newTweet = $(this).closest(".new-tweet");
 
     var remaining = 140 - $(this).val().length;
-    var counter = newTweet.find(".counter");
     counter.text(remaining);
 
     // conditionally add or remove the invalid class to style the counter based on the number of
