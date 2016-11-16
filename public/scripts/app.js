@@ -6,6 +6,7 @@
 $(function() {
 
   var tweetsContainer = $('#tweets-container');
+  var newTweet = $(".new-tweet");
   var composeDisplayed = false;
 
   function iconSpan(iconClass) {
@@ -106,7 +107,6 @@ $(function() {
   }
 
   function addError(errorMessage) {
-    var newTweet = $(".new-tweet");
     newTweet.find(".error").remove();
     newTweet.prepend($("<p>").addClass("error").text(errorMessage));
   }
@@ -140,7 +140,7 @@ $(function() {
     })
     .done(function(tweetData) {
       // update display pessimistically
-      $(".new-tweet").find("textArea").val("");
+      newTweet.find("textArea").val("");
       renderTweet(tweetData);
     });
   });
@@ -157,7 +157,7 @@ $(function() {
       closest.addClass("selected");
     }
     composeDisplayed = !composeDisplayed;
-    $( ".new-tweet" ).slideToggle(function(){
+    newTweet.slideToggle(function(){
       // When the toggle is finished, set the focus on the text area.
       $(this).find("textArea").focus();
     });
