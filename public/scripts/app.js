@@ -7,7 +7,6 @@ $(function() {
 
   var tweetsContainer = $('#tweets-container');
   var newTweet = $(".new-tweet");
-  var composeDisplayed = false;
   var tweetTemplate = Handlebars.compile($("#tweet-template").html());
 
   // time conversion constants
@@ -92,7 +91,7 @@ $(function() {
   /**
    * Compose form.
    */
-  $( "form" )
+  newTweet.find( "form" )
   .on( "submit", function(event) {
     var form = $( this );
     var textArea = form.find("textArea");
@@ -124,23 +123,31 @@ $(function() {
   }).on("input", function(){
     // remove error messages on user input
     newTweet.find(".error").remove();
+  }).on("toggle:show", function(){
+    $(this).find("textArea").focus();
   });
 
   /**
-   * Nav-bar button for toggling the state of the compose form.
+   * Toggle button.
    */
-  $( "#nav-bar" ).find(".compose a").on("click", function(event){
+  $('[data-toggle=toggle]').on('click', function () {
+    var thisThing = $(this);
+    var selector = thisThing.data('target');
+
     event.preventDefault();
-    var closest = $(this).closest(".compose");
-    if(composeDisplayed) {
-      closest.removeClass("selected");
+
+    if(thisThing.hasClass("selected")) {
+      thisThing.removeClass("selected");
     } else {
-      closest.addClass("selected");
+      thisThing.addClass("selected");
     }
-    composeDisplayed = !composeDisplayed;
-    newTweet.slideToggle(function(){
-      // When the toggle is finished, set the focus on the text area.
-      $(this).find("textArea").focus();
+
+    var toggleTarget = $(selector).slideToggle(function () {
+      if (toggleTarget.is(':visible')) {
+        toggleTarget.trigger('toggle:show');
+      } else {
+        toggleTarget.trigger('toggle:hide');
+      }
     });
   });
 
