@@ -106,6 +106,11 @@ function processForm(event) {
     return;
   }
 
+  if( formLength > 140 ) {
+    addError("Tweets can only be 140 characters long.");
+    return;
+  }
+
   $.ajax({
     method: "POST",
     url: "/tweets",
