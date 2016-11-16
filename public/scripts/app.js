@@ -90,8 +90,22 @@ function loadData() {
   });
 }
 
+function addError(errorMessage) {
+  var newTweet = $(".new-tweet");
+  newTweet.find(".error").remove();
+  newTweet.prepend($("<p>").addClass("error").text(errorMessage));
+}
+
 function processForm(event) {
+  var formLength = $(".new-tweet").find("textArea").val().length;
+
   event.preventDefault();
+
+  if( formLength === 0) {
+    addError("You haven't entered anything to post!");
+    return;
+  }
+
   $.ajax({
     method: "POST",
     url: "/tweets",

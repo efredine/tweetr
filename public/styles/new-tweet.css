@@ -26,3 +26,7 @@
 .new-tweet .counter.invalid {
   color: red;
 }
+
+.new-tweet .error {
+  color: red;
+}
