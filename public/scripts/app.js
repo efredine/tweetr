@@ -104,8 +104,14 @@ $(function() {
     newTweet.prepend($("<p>").addClass("error").text(errorMessage));
   }
 
-  $( "form" ).on( "submit", function(event) {
-    var formLength = $(".new-tweet").find("textArea").val().length;
+  /**
+   * Compose form.
+   */
+  $( "form" )
+  .on( "submit", function(event) {
+    var form = $( this );
+    var textArea = form.find("textArea");
+    var formLength = textArea.val().length;
 
     event.preventDefault();
 
@@ -119,10 +125,11 @@ $(function() {
       return;
     }
 
+    // length is ok, so post it
     $.ajax({
-      method: "POST",
-      url: "/tweets",
-      data: $( this ).serialize()
+      method: form.attr("method"),
+      url: form.attr("action"),
+      data: form.serialize()
     })
     .done(function() {
       $(".new-tweet").find("textArea").val("");
@@ -130,6 +137,9 @@ $(function() {
     });
   });
 
+  /**
+   * Nav-bar button for toggling the state of the compose form.
+   */
   $( "#nav-bar" ).find(".compose a").on("click", function(event){
     event.preventDefault();
     var closest = $(this).closest(".compose");
@@ -140,9 +150,11 @@ $(function() {
     }
     composeDisplayed = !composeDisplayed;
     $( ".new-tweet" ).slideToggle(function(){
+      // When the toggle is finished, set the focus on the text area.
       $(this).find("textArea").focus();
     });
   });
 
+  // initial call to load the data
   loadData();
 });
