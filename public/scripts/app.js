@@ -23,6 +23,9 @@ $(function() {
     var now = new Date();
     var then = new Date(timeInMilliSeconds);
     var differenceInMilliSeconds = now - then;
+    if (differenceInMilliSeconds < 0) {
+      return "Just now";
+    }
     var days = Math.floor(differenceInMilliSeconds / msDay);
     if(days) {
       return plural(days, "day");
