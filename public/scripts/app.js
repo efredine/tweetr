@@ -8,10 +8,7 @@ $(function() {
   var tweetsContainer = $('#tweets-container');
   var newTweet = $(".new-tweet");
   var composeDisplayed = false;
-
-  function iconSpan(iconClass) {
-    return $("<span>").addClass("fa " + iconClass).attr("aria-hidden", "true");
-  }
+  var tweetTemplate = Handlebars.compile($("#tweet-template").html());
 
   function plural(n, s) {
     return n.toString() + " " + s + (n > 1 ? "s" : "") + " ago";
@@ -44,49 +41,12 @@ $(function() {
     }
   }
 
-  /**
-   * @param  {Object} tweetData
-   * @return {Object} HTML formatted data:
-      <section id="tweets-container">
-        <article class="tweet">
-          <header>
-            <span class="avatar"></span>
-            <span class="user-name">User Name</span>
-            <span class="twitter-handle">@handle</span>
-          </header>
-          <p class="tweet-text">The tweet content</p>
-          <footer>
-            <span class="tweet-time">10 days ago</span>
-            <span class="actions">
-              <span class="fa fa-flag" aria-hidden="true"></span>
-              <span class="fa fa-retweet" aria-hidden="true"></span>
-              <span class="fa fa-heart" aria-hidden="true"></span>
-            </span>
-          </footer>
-        </article>
-      </section>
-   */
-  function createTweetElement(tweetData) {
-    var $tweet = $("<article>").addClass("tweet");
-    var header = $("<header>")
-      .append($("<span>").addClass("avatar").css('background-image', 'url(' + tweetData.user.avatars.small + ')'))
-      .append($("<span>").addClass("user-name").text(tweetData.user.name))
-      .append($("<span>").addClass("twitter-handle").text(tweetData.user.handle));
-    $tweet.append(header);
-    $tweet.append($("<p>").addClass("tweet-text").text(tweetData.content.text));
-    var actions = $("<span>").addClass("actions")
-      .append(iconSpan("fa-flag"))
-      .append(iconSpan("fa-retweet"))
-      .append(iconSpan("fa-heart"));
-    var footer = $("<footer>")
-      .append($("<span>").addClass("tweet-time").text(timeSince(tweetData.created_at)))
-      .append(actions);
-    $tweet.append(footer);
-    return $tweet;
-  }
-
   function renderTweet(tweetData) {
-    tweetsContainer.prepend(createTweetElement(tweetData));
+    tweetData.time = timeSince(tweetData.created_at);
+    $(tweetTemplate(tweetData))
+      .prependTo(tweetsContainer)
+      .find(".avatar")
+      .css('background-image', 'url(' + tweetData.user.avatars.small + ')');
   }
 
   function renderTweets(data) {

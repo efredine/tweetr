@@ -17,6 +17,7 @@
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -47,6 +48,23 @@
     <section id="tweets-container">
     </section>
     </main>
-
+    <script id="tweet-template" type="text/x-handlebars-template">
+      <article class="tweet">
+        <header>
+          <span class="avatar"></span>
+          <span class="user-name">{{user.name}}</span>
+          <span class="twitter-handle">{{user.handle}}</span>
+        </header>
+        <p class="tweet-text">{{content.text}}</p>
+        <footer>
+          <span class="tweet-time">{{time}}</span>
+          <span class="actions">
+            <span class="fa fa-flag" aria-hidden="true"></span>
+            <span class="fa fa-retweet" aria-hidden="true"></span>
+            <span class="fa fa-heart" aria-hidden="true"></span>
+          </span>
+        </footer>
+      </article>
+    </script>
   </body>
 </html>
