@@ -75,6 +75,7 @@ function createTweetElement(tweetData) {
 
 function renderTweets(data) {
   var tweetsContainer = $('#tweets-container');
+  tweetsContainer.empty();
   for(var i = 0; i < data.length; i++) {
     tweetsContainer.append(createTweetElement(data[i]));
   }
@@ -118,6 +119,7 @@ function processForm(event) {
   })
   .done(function() {
     $(".new-tweet").find("textArea").val("");
+    loadData();
   });
 }
 
