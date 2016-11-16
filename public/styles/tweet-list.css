@@ -30,6 +30,7 @@
 #tweets-container .tweet .tweet-text {
   font-size: 1.25em;
   padding: 16px;
+  overflow-wrap: break-word;
 }
 
 #tweets-container .tweet footer .actions {
