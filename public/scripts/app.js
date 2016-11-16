@@ -4,6 +4,9 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(function() {
+
+  var composeDisplayed = false;
+
   function iconSpan(iconClass) {
     return $("<span>").addClass("fa " + iconClass).attr("aria-hidden", "true");
   }
@@ -125,6 +128,18 @@ $(function() {
       $(".new-tweet").find("textArea").val("");
       loadData();
     });
+  });
+
+  $( "#nav-bar" ).find(".compose a").on("click", function(event){
+    event.preventDefault();
+    var closest = $(this).closest(".compose");
+    if(composeDisplayed) {
+      closest.removeClass("selected");
+    } else {
+      closest.addClass("selected");
+    }
+    composeDisplayed = !composeDisplayed;
+    $( ".new-tweet" ).slideToggle();
   });
 
   loadData();

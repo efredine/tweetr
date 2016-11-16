@@ -11,6 +11,36 @@
   z-index: 2;
 }
 
+#nav-bar .compose {
+  left: 450px;
+  padding: 10px 0;
+  position: absolute;
+  top: 0;
+}
+
+#nav-bar .compose a {
+  background-color: #eee;
+  border-radius: 5px;
+  border: 1px solid grey;
+  color: grey;
+  display: inline-block;
+  font-size: 1.25em;
+  line-height: 40px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+#nav-bar .compose a:hover {
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+
+#nav-bar .compose.selected a {
+  background-color: #E7FDFF;
+  color: #229687;
+}
+
 #nav-bar .logo {
   float: left;
   height: 80px;
