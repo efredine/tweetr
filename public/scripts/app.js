@@ -143,6 +143,9 @@ $(function() {
       newTweet.find("textArea").val("");
       renderTweet(tweetData);
     });
+  }).on("input", function(){
+    // remove error messages on user input
+    newTweet.find(".error").remove();
   });
 
   /**

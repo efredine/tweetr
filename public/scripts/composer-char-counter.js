@@ -4,9 +4,6 @@ $(document).ready(function(){
   $(".new-tweet").find("textArea").on("input", function(){
     var newTweet = $(this).closest(".new-tweet");
 
-    // remove any error messasges on user input
-    newTweet.find(".error").remove();
-
     var remaining = 140 - $(this).val().length;
     var counter = newTweet.find(".counter");
     counter.text(remaining);
