@@ -9,7 +9,7 @@ function iconSpan(iconClass) {
 }
 
 function plural(n, s) {
-  return n.toString() + " " + s + (n > 1 ? "s" : "");
+  return n.toString() + " " + s + (n > 1 ? "s" : "") + " ago";
 }
 
 var msMinute = 60 * 1000;
@@ -29,7 +29,11 @@ function timeSince(timeInMilliSeconds) {
     return plural(hours, "hour");
   }
   var minutes = Math.floor( (differenceInMilliSeconds % msHours) / msMinute);
-  return plural(minutes, "minute");
+  if(minutes) {
+    return plural(minutes, "minute");
+  } else {
+    return "Just now";
+  }
 }
 
 /**
@@ -67,7 +71,7 @@ function createTweetElement(tweetData) {
     .append(iconSpan("fa-retweet"))
     .append(iconSpan("fa-heart"));
   var footer = $("<footer>")
-    .append($("<span>").addClass("tweet-time").text(timeSince(tweetData.created_at) + " ago"))
+    .append($("<span>").addClass("tweet-time").text(timeSince(tweetData.created_at)))
     .append(actions);
   $tweet.append(footer);
   return $tweet;
