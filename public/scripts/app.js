@@ -10,14 +10,17 @@ $(function() {
   var composeDisplayed = false;
   var tweetTemplate = Handlebars.compile($("#tweet-template").html());
 
-  function plural(n, s) {
-    return n.toString() + " " + s + (n > 1 ? "s" : "") + " ago";
-  }
-
+  // time conversion constants
   var msMinute = 60 * 1000;
   var msHours = 60 * 60 * 1000;
   var msDay = 60 * 60 * 24 * 1000;
 
+  // helper function for timeSince
+  function formatDate(n, s) {
+    return n.toString() + " " + s + (n > 1 ? "s" : "") + " ago";
+  }
+
+  // return a time since string for the givne time in milliseconds
   function timeSince(timeInMilliSeconds) {
     var now = new Date();
     var then = new Date(timeInMilliSeconds);
@@ -27,28 +30,36 @@ $(function() {
     }
     var days = Math.floor(differenceInMilliSeconds / msDay);
     if(days) {
-      return plural(days, "day");
+      return formatDate(days, "day");
     }
     var hours = Math.floor( (differenceInMilliSeconds % msDay) / msHours );
     if(hours) {
-      return plural(hours, "hour");
+      return formatDate(hours, "hour");
     }
     var minutes = Math.floor( (differenceInMilliSeconds % msHours) / msMinute);
     if(minutes) {
-      return plural(minutes, "minute");
+      return formatDate(minutes, "minute");
     } else {
       return "Just now";
     }
   }
 
+  /*
+   * Render an individual tweet using a Handlebar template.
+   */
   function renderTweet(tweetData) {
     tweetData.time = timeSince(tweetData.created_at);
     $(tweetTemplate(tweetData))
       .prependTo(tweetsContainer)
+
+      // add the avatar image as a back-ground image so the corners can be rounded!
       .find(".avatar")
       .css('background-image', 'url(' + tweetData.user.avatars.small + ')');
   }
 
+  /**
+   * Clears out the tweets container and then renders all the tweets.
+   */
   function renderTweets(data) {
     tweetsContainer.empty();
     data.forEach(function(tweet) {
@@ -56,16 +67,23 @@ $(function() {
     });
   }
 
+  /**
+   * Load the data from the server.
+   */
   function loadData() {
     $.ajax({
       method: "GET",
-      url: "/tweets"
+      url: "/tweets",
+      datType: "json"
     })
     .done(function(tweetData) {
       renderTweets(tweetData);
     });
   }
 
+  /**
+   * Displays an error message for the compose form.
+   */
   function addError(errorMessage) {
     newTweet.find(".error").remove();
     newTweet.prepend($("<p>").addClass("error").text(errorMessage));
