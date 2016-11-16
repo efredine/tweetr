@@ -139,7 +139,9 @@ $(function() {
       closest.addClass("selected");
     }
     composeDisplayed = !composeDisplayed;
-    $( ".new-tweet" ).slideToggle();
+    $( ".new-tweet" ).slideToggle(function(){
+      $(this).find("textArea").focus();
+    });
   });
 
   loadData();
