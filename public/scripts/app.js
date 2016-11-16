@@ -117,7 +117,10 @@ $(function() {
     })
     .done(function(tweetData) {
       // update display pessimistically
-      newTweet.find("textArea").val("");
+      var textArea = newTweet.find("textArea");
+      textArea.val("");
+      textArea.focus();
+      textArea.trigger("change");
       renderTweet(tweetData);
     });
   }).on("input", function(){

@@ -1,8 +1,10 @@
 $(document).ready(function(){
-  var counter = $(".new-tweet").find(".counter");
+  var newTweet = $(".new-tweet");
+  var counter = newTweet.find(".counter");
+  var textArea = newTweet.find("textArea");
 
   // set handler on the text area within that section
-  $(".new-tweet").find("textArea").on("input", function(){
+  textArea.on("input change", function(event){
 
     var remaining = 140 - $(this).val().length;
     counter.text(remaining);
