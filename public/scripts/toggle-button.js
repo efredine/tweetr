@@ -2,7 +2,7 @@ $(function() {
   /**
    * Toggle button.
    */
-  $('[data-toggle=toggle]').on('click', function () {
+  $('body').on('click', '[data-toggle=toggle]', function () {
     var thisThing = $(this);
     var selector = thisThing.data('target');
 
