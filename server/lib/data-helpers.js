@@ -16,19 +16,11 @@ module.exports = function makeDataHelpers(db) {
           callback(err, null);
         }
       });
-      // simulateDelay(() => {
-      //   db.tweets.push(newTweet);
-      //   callback(null, true);
-      // });
     },
 
     // Get all tweets in `db`, sorted by newest first
     getTweets: function(callback) {
       tweets.find().sort({created_at: 1}).toArray(callback);
-      // simulateDelay(() => {
-      //   const sortNewestFirst = (a, b) => a.created_at - b.created_at;
-      //   callback(null, db.tweets.sort(sortNewestFirst));
-      // });
     }
 
   };

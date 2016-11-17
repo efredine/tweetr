@@ -13,7 +13,6 @@ const tweetsRoutes = require("./routes/tweets");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-// The in-memory database of tweets. It's a basic object with an array in it.
 MongoClient.connect(mongoURL, function(err, db) {
   console.log("Connected to mongodb server");
 
