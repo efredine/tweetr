@@ -9,8 +9,7 @@ $(function(){
       url: "/tweet/" + id + operation
     })
     .done(function() {
-      // update display pessimistically
-
+      // doesn't do anything at the moment.
     });
 
   });
