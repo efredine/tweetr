@@ -9,7 +9,6 @@ const app           = express();
 const MongoClient = require('mongodb').MongoClient;
 const DataHelpers = require("./lib/data-helpers.js");
 const tweetsRoutes = require("./routes/tweets");
-const tweetRoutes = require("./routes/tweet");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
@@ -19,7 +18,6 @@ MongoClient.connect(mongoURL, function(err, db) {
 
   const helpers = DataHelpers(db);
   app.use("/tweets", tweetsRoutes( helpers ) );
-  app.use("/tweet", tweetRoutes( helpers ) );
 
   app.listen(PORT, () => {
     console.log("Example app listening on port " + PORT);

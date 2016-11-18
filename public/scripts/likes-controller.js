@@ -6,7 +6,7 @@ $(function(){
     var operation = thisThing.hasClass('selected') ? "/like" : "/unlike";
     $.ajax({
       method: "PUT",
-      url: "/tweet/" + id + operation
+      url: "/tweets/" + id + operation
     })
     .done(function() {
       // doesn't do anything at the moment.
