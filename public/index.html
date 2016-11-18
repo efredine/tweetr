@@ -52,7 +52,7 @@
     </section>
     </main>
     <script id="tweet-template" type="text/x-handlebars-template">
-      <article class="tweet">
+      <article class="tweet" data-tweet-id="{{_id}}" data-tweet-liked="{{liked}}">
         <header>
           <span class="avatar"></span>
           <span class="user-name">{{user.name}}</span>
