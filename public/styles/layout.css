@@ -18,31 +18,37 @@ body {
   background-color: #eee;
   color: #244751;
   font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
   margin: 0;
 }
 main {
     background-color: white;
     margin: 0 auto;
+    min-height: 400px;
     min-width: 300px;
+    padding-top: 8em;
 }
-@media (max-width: 450px) {
+@media (max-width: 300px) {
+    body {
+      font-size: 9px;
+      width: 300px;
+    }
+
+}
+@media (min-width: 300px) and (max-width: 450px) {
   body {
-    font-size: 3vmin;
+    font-size: 3vw;
   }
   main {
     width: auto;
     min-width: 200px;
-    padding-top: 140px;
     min-height: 400px;
   }
 }
 @media (min-width: 450px) {
   main {
     width: 450px;
-    padding-top: 140px;
-    min-height: 400px;
   }
-
 }
 
 /*

@@ -3,7 +3,7 @@
   color: #e8fdff;
   height: 80px;
   left:0;
-  min-width: 350px;
+  min-width: 300px;
   padding-left: 1em;
   padding-right: 1em;
   position: fixed;
@@ -15,7 +15,7 @@
 #nav-bar .compose {
   display: inline-block;
   right: 1em;
-  min-width: 150px;
+  min-width: 10em;
   padding: 10px 0;
   position: absolute;
   top: 0;
