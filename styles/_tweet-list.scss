@@ -1,0 +1,85 @@
+#tweets-container {
+  padding-bottom: 80px;
+
+  .tweet {
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 2em 2em;
+    position: relative;
+
+    footer {
+      border-top: 1px solid #bbb;
+      font-size: 0.75em;
+      padding: 10px 16px;
+      position: relative;
+
+      .actions {
+        color: #66C6B7;
+        display: none;
+        position: absolute;
+        right: 16px;
+        bottom: 10px;
+
+        .fa {
+          padding-left: 5px;
+        }
+      }
+
+      .tweet-time {
+        display: inline-block;
+      }
+    }
+
+    header {
+      background-color: #eee;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      line-height: 40px;
+      height: 70px;
+      padding: 10px;
+      position: relative;
+
+      .avatar {
+        border-radius: 5px;
+        display: inline-block;
+        float: left;
+        height: 50px;
+        overflow: hidden;
+        width: 50px;
+      }
+
+      .twitter-handle {
+        bottom: 20px;
+        font-size: 1em;
+        position: absolute;
+        right: 16px;
+      }
+
+      .user-name {
+        bottom: 20px;
+        font-size: 1.5em;
+        font-weight: bold;
+        left: 80px;
+        margin: 0;
+        position: absolute;
+      }
+    }
+
+    .tweet-text {
+      font-size: 1.25em;
+      padding: 16px;
+      overflow-wrap: break-word;
+    }
+
+    &:hover footer .actions {
+      display: inline-block;
+
+      [data-tweet-liked=true] {
+        color: red;
+      }
+    }
+  }
+}
+
+
