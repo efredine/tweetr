@@ -5,29 +5,29 @@
   margin: 0 2em;
   padding: 16px;
   position: relative;
-}
 
-.new-tweet h2 {
-  margin: 0;
-  border-bottom: 1px solid black;
-  margin-bottom: 1em;
-}
+  h2 {
+    margin: 0;
+    border-bottom: 1px solid black;
+    margin-bottom: 1em;
+  }
 
-.new-tweet textarea {
-  width: 100%;
-  padding: 0.25em;
-}
+  textarea {
+    width: 100%;
+    padding: 0.25em;
+  }
 
-.new-tweet .counter {
-  bottom: 1em;
-  position: absolute;
-  right: 1em;
-}
+  .counter {
+    bottom: 1em;
+    position: absolute;
+    right: 1em;
+  }
 
-.new-tweet .counter.invalid {
-  color: red;
-}
+  .counter.invalid {
+    color: red;
+  }
 
-.new-tweet .error {
-  color: red;
+  .error {
+    color: red;
+  }
 }
