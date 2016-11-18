@@ -51,10 +51,6 @@ $(function() {
     var tweet = $(tweetTemplate(tweetData))
       .prependTo(tweetsContainer);
 
-    // add the avatar image as a back-ground image so the corners can be rounded!
-    tweet.find(".avatar")
-      .css('background-image', 'url(' + tweetData.user.avatars.small + ')');
-
     // Add the selected class to tweets this user has liked.
     var tweetLiked = Boolean(tweet.data("tweet-liked"));
     if(tweetLiked === true) {
