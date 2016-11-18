@@ -1,6 +1,12 @@
 $(function() {
   /**
    * Toggle button.
+   *
+   * Supports two features:
+   * 1) the ability to slide another element in and out.  This is specified as data-toggle="toggle".
+   *    data-selected="class of thing to toggle."
+   * 2) the ability to send an event to another listener on this button.  In this case, the action triggered
+   *    is specified as data-toggle="action".  The target is implied as this element.
    */
   $('body').on('click', '[data-toggle]', function () {
     var thisThing = $(this);
