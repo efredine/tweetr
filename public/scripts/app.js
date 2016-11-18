@@ -123,7 +123,10 @@ $(function() {
   }).on("input", function(){
     // remove error messages on user input
     newTweet.find(".error").remove();
-  }).on("toggle:show", function(){
+  });
+
+  // toggle:show is a custom event triggered by the toggle button
+  newTweet.on("toggle:show", function(){
     $(this).find("textArea").focus();
   });
 
