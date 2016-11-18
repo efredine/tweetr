@@ -78,7 +78,7 @@
   padding-left: 5px;
 }
 
-#tweets-container .tweet:hover footer .actions .selected.fa.fa-heart {
+#tweets-container .tweet:hover footer .actions [data-tweet-liked=true] {
   color: red;
 }
 

@@ -1,21 +1,30 @@
 $(function(){
   /**
-   * like event is triggered by an appropriately configured toggle-button.
-   * tweet-id is retrieved from a custom data element on the element with the .tweet class.
-   * Assumes this event is being triggered on the button that generated it, so bases which action
-   * to take based on whether or not the selcted class is present.
+   * Like state is stored in a custom data attribute.  When the button is clicked, update the state of the
+   * data attribute and post the new state to the server.  Use event delegation, because tweets are created
+   * dyanmically.
    */
-  $('body').on('like', '[data-toggle=like]', function () {
+  $('body').on('click', '.fa-heart', function () {
     var thisThing = $(this);
     var thisTweet = thisThing.closest(".tweet");
     var id = thisTweet.data("tweet-id");
-    var operation = thisThing.hasClass('selected') ? "/like" : "/unlike";
+    var likedData = thisThing[0].getAttribute('data-tweet-liked');
+    var likedState = likedData === "true";
+
+    // toggle button state
+    likedState = !likedState;
+
+    // update local state optimistically
+    thisThing[0].setAttribute("data-tweet-liked", likedState.toString());
+
+    // update the server idempotently
+    var operation = likedState ? "/like" : "/unlike";
     $.ajax({
       method: "PUT",
       url: "/tweets/" + id + operation
     })
     .done(function() {
-      // doesn't do anything at the moment.
+      // nothing to do...
     });
 
   });

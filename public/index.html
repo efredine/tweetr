@@ -54,7 +54,7 @@
     </section>
     </main>
     <script id="tweet-template" type="text/x-handlebars-template">
-      <article class="tweet" data-tweet-id="{{_id}}" data-tweet-liked="{{liked}}">
+      <article class="tweet" data-tweet-id="{{_id}}" >
         <header>
           <img class="avatar" src="{{user.avatars.small}}" alt="">
           <span class="user-name">{{user.name}}</span>
@@ -66,7 +66,7 @@
           <span class="actions">
             <span class="fa fa-flag" aria-hidden="true"></span>
             <span class="fa fa-retweet" aria-hidden="true"></span>
-            <span class="fa fa-heart" data-toggle="like" data-target=".fa-heart" aria-hidden="true"><a href="#"></a></span>
+            <span class="fa fa-heart" data-tweet-liked="{{liked}}" aria-hidden="true"><a href="#"></a></span>
           </span>
         </footer>
       </article>

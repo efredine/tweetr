@@ -51,11 +51,6 @@ $(function() {
     var tweet = $(tweetTemplate(tweetData))
       .prependTo(tweetsContainer);
 
-    // Add the selected class to tweets this user has liked.
-    var tweetLiked = Boolean(tweet.data("tweet-liked"));
-    if(tweetLiked === true) {
-      tweet.find(".fa-heart").addClass("selected");
-    }
   }
 
   /**
