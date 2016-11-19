@@ -1,0 +1,178 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*
+ * Global layout stuff
+ */
+body {
+  background-color: #eee;
+  color: #244751;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 16px;
+  margin: 0; }
+
+main {
+  background-color: white;
+  margin: 0 auto;
+  min-height: 400px;
+  min-width: 300px;
+  padding-top: 8em; }
+
+@media (max-width: 300px) {
+  body {
+    font-size: 9px;
+    width: 300px; } }
+
+@media (min-width: 300px) and (max-width: 450px) {
+  body {
+    font-size: 3vw; }
+  main {
+    width: auto;
+    min-width: 200px;
+    min-height: 400px; } }
+
+@media (min-width: 450px) {
+  main {
+    width: 450px; } }
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+#nav-bar {
+  background-color: #00a087;
+  color: #e8fdff;
+  height: 80px;
+  left: 0;
+  min-width: 300px;
+  padding-left: 1em;
+  padding-right: 1em;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2; }
+  #nav-bar .compose {
+    display: inline-block;
+    right: 1em;
+    min-width: 10em;
+    padding: 10px 0;
+    position: absolute;
+    top: 0; }
+    #nav-bar .compose a {
+      background-color: #eee;
+      border-radius: 5px;
+      border: 1px solid grey;
+      color: grey;
+      display: inline-block;
+      font-size: 1.25em;
+      line-height: 40px;
+      padding: 10px 20px;
+      text-decoration: none; }
+    #nav-bar .compose a:hover {
+      background-color: white;
+      border: 1px solid black;
+      color: black; }
+    #nav-bar .compose .fa {
+      padding-right: 5px; }
+    #nav-bar .compose.selected a {
+      background-color: #E7FDFF;
+      color: #229687; }
+  #nav-bar .logo {
+    float: left;
+    height: 80px;
+    width: 80px; }
+  #nav-bar .header {
+    float: left;
+    font-size: 2em;
+    line-height: 80px;
+    padding-left: 10px; }
+
+.new-tweet {
+  background-color: #eee;
+  border-radius: 5px;
+  display: none;
+  margin: 0 2em;
+  padding: 16px;
+  position: relative; }
+  .new-tweet h2 {
+    margin: 0;
+    border-bottom: 1px solid black;
+    margin-bottom: 1em; }
+  .new-tweet textarea {
+    width: 100%;
+    padding: 0.25em; }
+  .new-tweet .counter {
+    bottom: 1em;
+    position: absolute;
+    right: 1em; }
+  .new-tweet .counter.invalid {
+    color: red; }
+  .new-tweet .error {
+    color: red; }
+
+#tweets-container {
+  padding-bottom: 80px; }
+  #tweets-container .tweet {
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin: 2em 2em;
+    position: relative; }
+    #tweets-container .tweet footer {
+      border-top: 1px solid #bbb;
+      font-size: 0.75em;
+      padding: 10px 16px;
+      position: relative; }
+      #tweets-container .tweet footer .actions {
+        color: #66C6B7;
+        display: none;
+        position: absolute;
+        right: 16px;
+        bottom: 10px; }
+      #tweets-container .tweet footer .tweet-time {
+        display: inline-block; }
+    #tweets-container .tweet header {
+      background-color: #eee;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      line-height: 40px;
+      height: 70px;
+      padding: 10px;
+      position: relative; }
+      #tweets-container .tweet header .avatar {
+        border-radius: 5px;
+        display: inline-block;
+        float: left;
+        height: 50px;
+        overflow: hidden;
+        width: 50px; }
+      #tweets-container .tweet header .twitter-handle {
+        bottom: 20px;
+        font-size: 1em;
+        position: absolute;
+        right: 16px; }
+      #tweets-container .tweet header .user-name {
+        bottom: 20px;
+        font-size: 1.5em;
+        font-weight: bold;
+        left: 80px;
+        margin: 0;
+        position: absolute; }
+    #tweets-container .tweet .tweet-text {
+      font-size: 1.25em;
+      padding: 16px;
+      overflow-wrap: break-word; }
+    #tweets-container .tweet:hover footer .actions {
+      display: inline-block; }
+      #tweets-container .tweet:hover footer .actions .fa {
+        padding-left: 5px; }
+      #tweets-container .tweet:hover footer .actions [data-tweet-liked=true] {
+        color: red; }
+
