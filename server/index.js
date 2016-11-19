@@ -1,5 +1,5 @@
 "use strict";
-require('dotenv').config();
+require('dotenv').config({silent: true});
 
 const PORT          = 8080;
 //|| 'mongodb://localhost:27017/tweeter';
